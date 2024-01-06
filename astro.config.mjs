@@ -30,7 +30,6 @@ export default defineConfig({
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
 
-   output:'server',
    adapter: netlify(),
   integrations: [
     tailwind({
