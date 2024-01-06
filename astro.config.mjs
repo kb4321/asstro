@@ -13,6 +13,7 @@ import tasks from './src/utils/tasks';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 
 import { ANALYTICS, SITE } from './src/utils/config.ts';
+import netlify from '@astrojs/netlify/functions';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -28,8 +29,9 @@ export default defineConfig({
   base: SITE.base,
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
 
-  output: 'static',
 
+   output:'server',
+   adapter: netlify(),
   integrations: [
     tailwind({
       applyBaseStyles: false,
